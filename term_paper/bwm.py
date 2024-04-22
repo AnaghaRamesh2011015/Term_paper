@@ -127,6 +127,11 @@ print(f"fitting the data to the boltzmann gibbs blast wave model")
 res_lsq = least_squares(lambda x: boltzmann_gibbs_blast_wave(pT, *x) - nine, [m_0_pi, T_0, beta_s_0, R_0, n_0_bg, norm_bg], bounds=all_bounds_bg, verbose=2)
 popt = res_lsq.x
 
+#printing the values for which the data is fitted:
+print("Fitted Parameter Values for BGBW:")
+for i, param_name in enumerate(["m_0", "T", "beta_s", "R", "n", "norm"]):
+    print(f"{param_name}: {popt[i]}")
+
 print(f"fitting the data to the tsallis blast wave model")
 # popt2, pcov2 = curve_fit(tsallis_blast_wave, pT, nine, p0=[Y_0,  m_0, T_0, q_0, R_0, beta, n_0_ts, norm_ts],bounds=all_bounds_ts)
 
@@ -135,6 +140,10 @@ iteration_limit = 15
 res_lsq = least_squares(lambda x: tsallis_blast_wave(pT, *x) - nine, [Y_0,  m_0_pi, T_0, q_0, R_0, beta, n_0_ts, norm_ts], bounds=all_bounds_ts, verbose=2, max_nfev=iteration_limit)
 popt2 = res_lsq.x
 
+#printing the values for which the data is fitted:
+print("Fitted Parameter Values for TBW:")
+for i, param_name in enumerate(["m_0", "T", "beta_s", "R", "n", "norm"]):
+    print(f"{param_name}: {popt2[i]}")
 ### ---------- plotting the data and the fits ---------- ###
 
 print(f"Getting the datapoints for the fits")
