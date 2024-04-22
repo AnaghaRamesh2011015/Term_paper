@@ -142,7 +142,7 @@ popt2 = res_lsq.x
 
 #printing the values for which the data is fitted:
 print("Fitted Parameter Values for TBW:")
-for i, param_name in enumerate(["m_0", "T", "beta_s", "R", "n", "norm"]):
+for i, param_name in enumerate(["Y_0", "m_0","T_0","q_0","R", "beta" , "n", "norm"]):
     print(f"{param_name}: {popt2[i]}")
 ### ---------- plotting the data and the fits ---------- ###
 
